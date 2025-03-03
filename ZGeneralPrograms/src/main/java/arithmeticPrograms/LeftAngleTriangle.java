@@ -1,7 +1,10 @@
 package arithmeticPrograms;
 
+import org.testng.annotations.Test;
+
 public class LeftAngleTriangle {
-    public static void main(String[] args) {
+	@Test
+    public static void Test() {
         int n = 5; // number of rows
         
         for (int i = n; i >= 1; i--) {

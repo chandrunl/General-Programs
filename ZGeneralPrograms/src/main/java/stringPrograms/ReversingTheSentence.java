@@ -25,7 +25,6 @@ i = 2: reversed = reversed + input.charAt(2) → reversed = "dlroW ol" + 'l' →
 i = 1: reversed = reversed + input.charAt(1) → reversed = "dlroW oll" + 'e' → "dlroW olle"
 i = 0: reversed = reversed + input.charAt(0) → reversed = "dlroW olle" + 'H' → "dlroW olleH*/
 //third statement (i--) is executed after each iteration of the loop body, not before or during the first iteratio
-
 /* 
  *
  * public class ReverseString {
