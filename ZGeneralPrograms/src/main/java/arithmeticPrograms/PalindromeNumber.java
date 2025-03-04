@@ -10,7 +10,6 @@ public class PalindromeNumber {
             reversed = reversed * 10 + Remainder;
             num =num/10;
         }
-
         if (Temp == reversed) {
             System.out.println(Temp + " is a palindrome");
         } else {

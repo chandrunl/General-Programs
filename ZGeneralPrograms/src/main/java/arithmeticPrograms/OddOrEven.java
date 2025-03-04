@@ -18,7 +18,6 @@ public class OddOrEven {
         } else {
             System.out.println(number + " is an Odd number.");
         }
-
         // Closing scanner
         scanner.close();
 
