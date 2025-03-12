@@ -4,11 +4,11 @@ package stringPrograms;
  */
 public class ReversingTheSentence {
     public static void main(String[] args) {
-        String input = "Hello World";
+        String str = "Hello World";
         String reversed = "";
 
-        for (int i = input.length() - 1; i >= 0; i--) {
-            reversed += input.charAt(i);                  // Reversed=Reversed+input.chartAt(i);
+        for (int i = str.length() - 1; i >= 0; i--) {
+            reversed += str.charAt(i);             
         }
         System.out.println("Reversed String: " + reversed);
     }
