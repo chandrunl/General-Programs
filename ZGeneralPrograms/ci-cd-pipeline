@@ -1,0 +1,44 @@
+stages:
+  - build
+  - test
+ 
+# Define variables that can be used throughout the pipeline
+variables:
+  MAVEN_CLI_OPTS: "-ssettings.xml"
+  SUITE_FILE_NAME: "-DsuiteFileName=TestSuites/GeneralPrograms.xml"
+  ENVIRONMENT: "-DEnv=PPE"
+  #ExecutionEnv: "-Dexecution.env=local"
+ 
+cache:
+  paths:
+    - .m2/repository/
+ 
+ 
+build:
+  stage: build
+  tags:
+    general programs
+  only:
+    variables:
+      - $GOAL == "build"
+  script:
+    - mvn $MAVEN_CLI_OPTS compile
+ 
+tests:
+  stage: test
+  tags:
+    general programs
+  only:
+    variables:
+      - $GOAL == "test"
+  allow_failure: true
+  script:
+    - echo Starting execution in $ENVIRONMENT
+    - mvn $MAVEN_CLI_OPTS clean test $SUITE_FILE_NAME
+  artifacts:
+     when: always
+     expire_in: 1 week
+     paths:
+       - 'target/extent-report/*'
+     reports:
+       junit: 'test-output/junitreports/*'
