@@ -2,7 +2,7 @@ package stringPrograms;
 /**
  * Hello world!
  */
-public class ReversingTheSentence {
+public class ReversingTheWord {
     public static void main(String[] args) {
         String str = "Hello World";
         String reversed = "";
