@@ -16,6 +16,7 @@ public class ReversingEachWordInSentence {
         System.out.println("Reversed String: " + reversedSentence.trim()); // Print the result
     }
 }
+
 //(for-each loop) in Java. It is specifically designed for iterating over arrays or collections like lists, sets, and maps
 /*
 public class ReversingEachWordInSentence {
