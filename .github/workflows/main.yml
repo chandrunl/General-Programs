@@ -5,7 +5,7 @@ on:
     # Runs every hour
     - cron: '0 * * * *'
   push:
-    branches: [ main, develop ]
+    branches: [ main, new-branch ]
   pull_request:
     branches: [ main ]
 
@@ -44,10 +44,10 @@ jobs:
             target/site/
             test-output/
           
-  deploy-dev:
-    name: Deploy to Development
+  deploy-test:
+    name: Deploy to Test Environment
     needs: build-and-test
-    if: github.event_name == 'schedule' || github.ref == 'refs/heads/develop'
+    if: github.event_name == 'schedule' || github.ref == 'refs/heads/new-branch'
     runs-on: ubuntu-latest
     
     steps:
@@ -56,11 +56,10 @@ jobs:
         with:
           name: test-reports
           
-      - name: Deploy to Dev Environment
+      - name: Deploy to Test Environment
         run: |
-          echo "Deploying to development environment..."
-          # Add your deployment commands here
-          # For example, you might deploy to a test server
+          echo "Deploying to test environment..."
+          # Add your deployment commands here for the test environment
           
   deploy-prod:
     name: Deploy to Production
