@@ -49,31 +49,3 @@ jobs:
     needs: build-and-test
     if: github.event_name == 'schedule' || github.ref == 'refs/heads/new-branch'
     runs-on: ubuntu-latest
-    
-    steps:
-      - name: Download Build Artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: test-reports
-          
-      - name: Deploy to Test Environment
-        run: |
-          echo "Deploying to test environment..."
-          # Add your deployment commands here for the test environment
-          
-  deploy-prod:
-    name: Deploy to Production
-    needs: build-and-test
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Download Build Artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: test-reports
-          
-      - name: Deploy to Production Environment
-        run: |
-          echo "Deploying to production environment..."
-          # Add your production deployment commands here
